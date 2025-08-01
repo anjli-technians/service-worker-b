@@ -55,7 +55,7 @@ router.post('/', async (req, res) => {
     // console.log( Notification Summary: ${successful} successful, ${failed} failed);
     
     res.status(200).json({ 
-      message: Push notifications sent! ${successful} successful, ${failed} failed,
+      message: `Push notifications sent! ${successful} successful, ${failed} failed`,
       results: results
     });
   } catch (err) {
