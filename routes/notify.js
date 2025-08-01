@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
         results.push({ success: true, endpoint: sub.endpoint });
         return result;
       } catch (err) {
-        console.error( Failed to send notification ${index + 1}:, err.message);
+        console.error(`Failed to send notification ${index + 1}:`, err.message);
         
         // Clean up expired subscriptions
         if (err.statusCode === 410 || err.statusCode === 404) {
