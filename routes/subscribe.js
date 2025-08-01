@@ -52,7 +52,7 @@ router.post('/subscribe', async (req, res) => {
 router.get('/list', async (req, res) => {
   try {
     const subscriptions = await Subscription.find();
-    console.log(📱 Found ${subscriptions.length} total subscriptions);
+    console.log( Found ${subscriptions.length} total subscriptions);
     res.status(200).json({ 
       count: subscriptions.length,
       subscriptions: subscriptions.map(sub => ({
