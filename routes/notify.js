@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
   const notificationPayload = JSON.stringify({
     title: 'Push Notification',
     body: 'This is from your backend!',
-    url: '/sendNotification'
+    url: '/'
   });
 
   try {
