@@ -31,7 +31,7 @@ import subscribeRoute from './routes/subscribe.js';
 import notifyRoute from './routes/notify.js';
 
 app.use('/subscribe', subscribeRoute);
-app.use('/sendNotification', notifyRoute);
+app.use('/', notifyRoute);
 
 // Connect to MongoDB and start server
 mongoose
