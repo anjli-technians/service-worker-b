@@ -8,20 +8,20 @@ router.post('/', async (req, res) => {
   const subscription = req.body;
 
   try {
-    console.log('📝 New subscription request received');
-    console.log('🔗 Endpoint:', subscription.endpoint.substring(0, 50) + '...');
+    // console.log('📝 New subscription request received');
+    // console.log('🔗 Endpoint:', subscription.endpoint.substring(0, 50) + '...');
     
     const exists = await Subscription.findOne({ endpoint: subscription.endpoint });
     if (!exists) {
       await Subscription.create(subscription);
-      console.log('✅ New subscription saved successfully');
+      // console.log('✅ New subscription saved successfully');
       res.status(201).json({ message: 'Subscription saved successfully' });
     } else {
-      console.log('ℹ️ Subscription already exists');
+      // console.log('ℹ️ Subscription already exists');
       res.status(200).json({ message: 'Already subscribed' });
     }
   } catch (error) {
-    console.error('❌ Error saving subscription:', error);
+    // console.error('❌ Error saving subscription:', error);
     res.status(500).json({ error: 'Subscription save failed' });
   }
 });
@@ -30,20 +30,20 @@ router.post('/subscribe', async (req, res) => {
   const subscription = req.body;
 
   try {
-    console.log('📝 Subscribe request received');
-    console.log('🔗 Endpoint:', subscription.endpoint.substring(0, 50) + '...');
+    // console.log('📝 Subscribe request received');
+    // console.log('🔗 Endpoint:', subscription.endpoint.substring(0, 50) + '...');
     
     const exists = await Subscription.findOne({ endpoint: subscription.endpoint });
     if (!exists) {
       await Subscription.create(subscription);
-      console.log("✅ New subscription stored.");
+      // console.log("✅ New subscription stored.");
     } else {
-      console.log("ℹ️ Subscription already exists.");
+      // console.log("ℹ️ Subscription already exists.");
     }
 
     res.status(201).json({ message: 'Subscribed successfully' });
   } catch (err) {
-    console.error("❌ Error storing subscription:", err);
+    // console.error("❌ Error storing subscription:", err);
     res.status(500).json({ error: "Subscription failed" });
   }
 });
@@ -52,7 +52,7 @@ router.post('/subscribe', async (req, res) => {
 router.get('/list', async (req, res) => {
   try {
     const subscriptions = await Subscription.find();
-    console.log( Found ${subscriptions.length} total subscriptions);
+    // console.log( Found ${subscriptions.length} total subscriptions);
     res.status(200).json({ 
       count: subscriptions.length,
       subscriptions: subscriptions.map(sub => ({
